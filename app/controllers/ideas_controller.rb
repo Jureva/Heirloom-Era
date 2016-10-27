@@ -36,7 +36,7 @@ class IdeasController < ApplicationController
     end
   end
   
-  def delete
+  def destroy
     @idea = Idea.find(params[:id])
     @idea.delete
    
