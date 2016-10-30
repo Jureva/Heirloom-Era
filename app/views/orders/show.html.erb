@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="box">
+    <div class="col-lg-12">
+<p>
+  <strong>Title:</strong>
+  <%= @order.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @order.text %>
+</p>
+<strong><%= link_to 'Edit', edit_order_path(@order) %> |</strong>
+<strong><%= link_to 'Back', orders_path %></strong>
+    </div>
+  </div>
+</div>

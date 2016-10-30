@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :customers
   resources :ideas
+  resources :orders
   # get 'welcome/index'
 
   root 'welcome#index'
