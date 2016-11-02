@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'customers/new'
+  get 'register' => 'customers#new'
   resources :customers
   resources :ideas
   resources :orders
