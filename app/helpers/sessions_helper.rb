@@ -14,5 +14,11 @@ module SessionsHelper
   def logged_in?
     !current_customer.nil?
   end
+  
+  # Logs out the current customer.
+  def log_out
+    session.delete(:customer_id)
+    @current_customer = nil
+  end
 end
 

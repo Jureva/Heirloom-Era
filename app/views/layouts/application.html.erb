@@ -40,15 +40,16 @@
                     <li>
                         <a href="customers">Customer Profile</a>
                     </li>
-                    <li>
-                        <a href="login">Log In</a>
-                    </li>
-                    <% if logged_in? %>
-                    <li>
-                    <%= link_to "Log out", logout_path, method: "delete" %>
-                    </li>
-                    <% end %>
+                    
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <% if logged_in? %>
+                    <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+                    <% else %>
+                    <li><%= link_to "Log in", login_path %></li>
+                    <% end %>
+                   </ul> 
+                
             </div>
             <!-- /.navbar-collapse -->
         </div>
