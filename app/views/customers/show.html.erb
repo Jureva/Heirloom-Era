@@ -11,7 +11,14 @@
   <strong>Email address:</strong>
   <%= @customer.email %>
 </p>
-
+  <aside class="col-md-4">
+    <section class="customer_info">
+<h2>
+  <%= gravatar_for @customer %>
+  <%= @customer.name %>
+</h2>
+    </section>
+  </aside>
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
 </div>

@@ -40,6 +40,14 @@
                     <li>
                         <a href="customers">Customer Profile</a>
                     </li>
+                    <li>
+                        <a href="login">Log In</a>
+                    </li>
+                    <% if logged_in? %>
+                    <li>
+                    <%= link_to "Log out", logout_path, method: "delete" %>
+                    </li>
+                    <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -60,6 +68,8 @@
                     <p>Copyright &copy; Heirloom Era 2016</p>
                 </div>
             </div>
+            <!-- debug information -->
+            <%= debug(params) if Rails.env.development? %>
         </div>
     </footer>
 

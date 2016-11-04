@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   get 'customers/new'
-  get 'register' => 'customers#new'
+   #get 'signup' => 'customers#new'
+  get    '/signup',  to: 'customers#new'
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
   resources :customers
   resources :ideas
   resources :orders
