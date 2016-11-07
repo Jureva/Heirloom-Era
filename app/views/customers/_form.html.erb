@@ -28,6 +28,7 @@
     <%= f.text_field :password_confirmation %>
   </div>
   <div class="actions">
-    <%= f.submit "Create Customer Profile" %>
+    <%= f.submit yield (:button_text) %>
   </div>
 <% end %>
+
