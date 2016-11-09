@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       # Log the customer in and redirect to the customer's show page.
       log_in customer
       params[:session][:remember_me] == '1' ? remember(customer) : forget(customer)
-      redirect_to customer
+      redirect_back_or customer
     else
       # Create an error message.
       flash.now[:danger] = 'Invalid email/password combination'

@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
-
+#  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_customer, only: [:edit, :update]
+  before_action :correct_customer, only: [:edit, :update]
   # GET /customers
   # GET /customers.json
   def index
@@ -74,5 +75,20 @@ class CustomersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
       params.require(:customer).permit(:name, :email, :password)
+    end
+    
+    # Confirms a logged-in customer.
+    def logged_in_customer
+      unless logged_in?
+      store_location 
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+    
+    # Confirms the correct customer.
+    def correct_customer
+      @customer = Customer.find(params[:id])
+      redirect_to(root_url) unless current_customer?(@customer)
     end
 end

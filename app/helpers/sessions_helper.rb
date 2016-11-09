@@ -12,6 +12,12 @@ module SessionsHelper
     cookies.permanent[:remember_token] = customer.remember_token
   end
   
+  # Returns true if the given customer is the current customer.
+  def current_customer?(customer)
+    customer == current_customer
+  end
+  
+  
    # Returns the user corresponding to the remember token cookie.
   def current_customer
     if (customer_id = session[:customer_id])
@@ -48,6 +54,17 @@ module SessionsHelper
     forget(current_customer)
     session.delete(:customer_id)
     @current_customer = nil
+  end
+  
+   # Redirects to stored location (or to the default).
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Stores the URL trying to be accessed.
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end
 
