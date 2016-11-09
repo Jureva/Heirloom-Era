@@ -3,7 +3,8 @@
    <div class="col-lg-12">
 <p id="notice"><%= notice %></p>
 
-<h2 class="intro-text text-center">Listing Customers</h2>
+<h2 class="intro-text text-center">All Customers</h2>
+<%= will_paginate %>
 <table>
   <style>
   th, td {
@@ -21,7 +22,10 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.name %></td>
+        <td>
+          <%= gravatar_for customer, size: 50 %>
+          <%= link_to customer.name, customer %>
+        </td>
         <td><%= customer.email %></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
@@ -32,7 +36,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate %>
 <br>
 
 <%= link_to 'New Customer', new_customer_path %>

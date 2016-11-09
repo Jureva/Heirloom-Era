@@ -1,11 +1,11 @@
 class CustomersController < ApplicationController
 #  before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_customer, only: [:edit, :update]
-  before_action :correct_customer, only: [:edit, :update]
+  before_action :logged_in_customer, only: [:index,:edit, :update]
+  before_action :correct_customer, only: [:edit, :update,:destroy]
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    @customers = Customer.paginate(page: params[:page])    #@customers = Customer.all 
   end
 
   # GET /customers/1

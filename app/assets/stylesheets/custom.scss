@@ -3,7 +3,7 @@
 
 /* mixins, variables, etc. */
 
-$gray-medium-light: #eaeaea;
+$gray-medium-light: #ab9292;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -71,4 +71,16 @@ aside {
 
 .gravatar_edit {
   margin-top: 15px;
+}
+
+/* Customers index */
+
+.customers {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
 }
