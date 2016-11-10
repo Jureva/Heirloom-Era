@@ -1,7 +1,8 @@
 class CustomersController < ApplicationController
-#  before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_customer, only: [:index,:edit, :update]
-  before_action :correct_customer, only: [:edit, :update,:destroy]
+# before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_customer, only: [:index,:edit, :update, :destroy]
+  before_action :correct_customer, only: [:edit, :update]
+  before_action :admin_customer,     only: :destroy
   # GET /customers
   # GET /customers.json
   def index
@@ -56,16 +57,20 @@ class CustomersController < ApplicationController
     end
   end
 
-  # DELETE /customers/1
+  # DELETE /customers/1 
   # DELETE /customers/1.json
   def destroy
-    @customer.delete
-    respond_to do |format|
-      format.html { redirect_to customers_url, notice: 'Customer Profile was successfully deleted.' }
-      format.json { head :no_content }
-    end
-  end
-
+  Customer.find(params[:id]).destroy
+  flash[:success] = "Customer deleted"
+  redirect_to customers_url
+  end  
+  
+   # @customer.delete
+    #respond_to do |format|
+     # format.html { redirect_to customers_url, notice: 'Customer Profile was successfully deleted.' }
+      #format.json { head :no_content }
+    #end
+ 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
@@ -90,5 +95,10 @@ class CustomersController < ApplicationController
     def correct_customer
       @customer = Customer.find(params[:id])
       redirect_to(root_url) unless current_customer?(@customer)
+    end
+    
+    # Confirms an admin customer.
+    def admin_customer
+      redirect_to(root_url) unless current_customer.admin?
     end
 end
