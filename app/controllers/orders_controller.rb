@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+#before_action :logged_in_customer, only: [:index,:edit, :update, :destroy]
+#before_action :correct_customer, only: [:edit, :update, :destroy]
+
     def index
     @orders = Order.all
     end
