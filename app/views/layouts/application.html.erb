@@ -59,19 +59,21 @@
 
     <p><%= yield %></p>
   
-        
     <!-- /.container -->
 
     <footer>
-        <div class="container">
+        
             <div class="row">
+               <div class="navbar-footer"> 
                 <div class="col-lg-12 text-center">
                     <p>Copyright &copy; Heirloom Era 2016</p>
                 </div>
+                </div>
             </div>
+            
             <!-- debug information -->
             <%= debug(params) if Rails.env.development? %>
-        </div>
+       
     </footer>
 
     <!-- jQuery -->
