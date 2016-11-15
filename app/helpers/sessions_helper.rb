@@ -25,7 +25,7 @@ module SessionsHelper
     elsif (customer_id = cookies.signed[:customer_id])
       # raise       The tests still pass, so this branch is currently untested.
       customer = Customer.find_by(id: customer_id)
-    if customer && customer.authenticated?(cookies[:remember_token])
+    if customer && customer.authenticated?(:remember, cookies[:remember_token])
         log_in customer
         @current_customer = customer
     end

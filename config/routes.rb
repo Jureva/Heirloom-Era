@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :ideas
   resources :orders
+  resources :account_activations, only: [:edit]
   # get 'welcome/index'
 
   root 'welcome#index'

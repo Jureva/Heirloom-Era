@@ -6,13 +6,14 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.paginate(page: params[:page])    #@customers = Customer.all 
+    @customers = Customer.where(activated: FILL_IN).paginate(page: params[:page])    #@customers = Customer.all 
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
      @customer = Customer.find(params[:id])
+     redirect_to root_url and return unless FILL_IN
    # debugger
   end
 
@@ -31,14 +32,19 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
 
-    respond_to do |format|
+    #respond_to do |format|
       if @customer.save
-        log_in @customer
-        format.html { redirect_to @customer, notice: 'Customer Profile was successfully created.' }
-        format.json { render :show, status: :created, location: @customer }
+        @customer.send_activation_email
+        #CustomerMailer.account_activation(@customer).deliver_now
+        flash[:info] = "Please check Your email to activate Heirloom Era account."
+        redirect_to root_url
+        #log_in @customer
+        #format.html { redirect_to @customer, notice: 'Customer Profile was successfully created.' }
+        #format.json { render :show, status: :created, location: @customer }
       else
-        format.html { render :new }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+        render 'new'
+        #format.html { render :new }
+        #format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -101,4 +107,4 @@ class CustomersController < ApplicationController
     def admin_customer
       redirect_to(root_url) unless current_customer.admin?
     end
-end
+

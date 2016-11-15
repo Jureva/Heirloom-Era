@@ -1,0 +1,6 @@
+
+Hi <%= @customer.name %>,
+
+Welcome to Heirloom Era! Click on the link below to activate Your account:
+
+<%= edit_account_activation_url(@customer.activation_token, email: @customer.email) %>

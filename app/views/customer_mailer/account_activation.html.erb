@@ -1,0 +1,8 @@
+<h2>Heirloom Era</h2>
+
+<p>Hi <%= @customer.name %>,</p>
+  
+<p>Welcome to Heirloom Era! Click on the link below to activate Your account:</p>
+
+<%= link_to "Activate", edit_account_activation_url(@customer.activation_token,
+                                                    email: @customer.email) %>
