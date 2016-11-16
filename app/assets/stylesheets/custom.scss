@@ -84,3 +84,20 @@ aside {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+.alert {
+background-position: 2% 7px;
+background-repeat: no-repeat;
+background-size: auto 35px;
+background-color: rgba(246, 227, 224, 0.9);
+border: 0;
+min-width: auto !important;
+text-align: left;
+padding-left: 68px;
+}
+
+.alert.alert-danger {
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAARVBMVEX////7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0P7y0NAQECdhUHYsUKGdEG1l0JLSEBuYkHkukPKU8NPAAAADnRSTlMA4EDAoCAQ8IBgkDDQUFItelQAAAC0SURBVHherZBLDsMwCAVD7Nj5gvPr/Y/a0FpGLTibdnbozQJN829agPZu7/CiuxE8C76+T/hiqgruLbjqh5ip/TljZrb3AQuDKYAIYO09L3TBRq/3EHk4shCDEkZkTqITmdGMLIIO7r8FbzfaiDappSNjIkpZcCqyCDo4WAJYkR8prTp4ADSBUCIX9uPY5epL5AJdyBWDRDYFHCWyCiXBObKwrh+nl4g2TiLVhSXW97g0v/MEHIQbCYeFmYAAAAAASUVORK5CYII=);
+border-top: 1px solid rgba(140, 0, 0, 0.4);
+border-bottom: 1px solid rgba(140, 0, 0, 0.4);
+}

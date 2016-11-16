@@ -8,6 +8,10 @@
 </head>
 <body>
 
+    <% flash.each do |alert| %>
+      <div class="alert alert-danger"><%= alert %></div>
+    <% end %>
+
     <div class="brand">Heirloom Era</div>
     <div class="address-bar"> Craft Place |  Artist Hill, D24CK70 | 123.321.199</div>
 
@@ -76,11 +80,13 @@
        
     </footer>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <!-- jQuery 
+    <script src="javascript/jquery.js"></script>
+    -->
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JavaScript
+    <script src="javascripts/bootstrap.min.js"></script>
+     -->
 
     <!-- Script to Activate the Carousel -->
     <script>
