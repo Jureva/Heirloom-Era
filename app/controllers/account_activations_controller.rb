@@ -1,7 +1,9 @@
 class AccountActivationsController < ApplicationController
     def edit
     customer = Customer.find_by(email: params[:email])
-    if customer && !customer.activated? && customer.authenticated?(:activation, params[:id])
+    #customer.activate
+    #if customer && !customer.activated? && customer.authenticated?(:activation, params[:id])
+    if customer && customer.authenticated?(:activation, params[:id])
       customer.activate
       log_in customer
       flash[:success] = "Account activated!"
