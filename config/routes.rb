@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :customers
+  resources :account_activations, only: [:edit]
   resources :ideas
   resources :orders
-  resources :account_activations, only: [:edit]
+  
   # get 'welcome/index'
 
   root 'welcome#index'

@@ -6,15 +6,15 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.where(activated: FILL_IN).paginate(page: params[:page])    #@customers = Customer.all 
+    @customers = Customer.where(activated: true).paginate(page: params[:page])    #@customers = Customer.all 
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
      @customer = Customer.find(params[:id])
-     redirect_to root_url and return unless FILL_IN
-   # debugger
+     redirect_to root_url and return unless true  
+    #debugger
   end
 
   # GET /customers/new
@@ -46,8 +46,8 @@ class CustomersController < ApplicationController
         #format.html { render :new }
         #format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
-    end
   end
+
 
   # PATCH/PUT /customers/1
   # PATCH/PUT /customers/1.json
@@ -107,4 +107,4 @@ class CustomersController < ApplicationController
     def admin_customer
       redirect_to(root_url) unless current_customer.admin?
     end
-
+end
