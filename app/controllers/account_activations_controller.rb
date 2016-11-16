@@ -1,6 +1,6 @@
 class AccountActivationsController < ApplicationController
     def edit
-    customer = Customer.find_by(email: params[:email])
+    customer = Customer.find_by(email: params[:email], id: params[:id])
     if customer && !customer.activated? && customer.authenticated?(:activation, params[:id])
       customer.activate
       #customer.update_attribute(:activated,    true)
