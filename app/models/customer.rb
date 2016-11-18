@@ -1,5 +1,5 @@
 class Customer < ActiveRecord::Base
-    attr_accessor :remember_token, :activation_token
+    attr_accessor :remember_token, :activation_token, :reset_token
     before_save :downcase_email #{self.email = email.downcase}
     before_create :create_activation_digest
     validates :name, presence: true, length: {maximum:50}
@@ -52,6 +52,24 @@ class Customer < ActiveRecord::Base
   # Sends activation email.
   def send_activation_email
     CustomerMailer.account_activation(self).deliver_now
+  end
+   
+   # Sets the password reset attributes.
+  def create_reset_digest
+    self.reset_token = Customer.new_token
+    update_columns(reset_digest: true, reset_sent_at: Time.zone.now)
+    #update_attribute(:reset_digest,  Customer.digest(reset_token))
+    #update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  # Sends password reset email.
+  def send_password_reset_email
+    CustomerMailer.password_reset(self).deliver_now
+  end
+    
+  # Returns true if a password reset has expired.
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
     
 private
