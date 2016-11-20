@@ -5,7 +5,7 @@
       <h2>Update Your Profile</h2>
 <% provide(:button_text, 'Save changes') %>
 <%= render 'form' %>
-<%= render 'shared/error_messages', object: f.object %>
+
     <div class="gravatar_edit">
       <%= gravatar_for @customer %>
       <a href="http://gravatar.com/emails" target="_blank">Change</a>
