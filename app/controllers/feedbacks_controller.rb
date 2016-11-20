@@ -21,7 +21,7 @@ before_action :correct_customer,   only: :destroy
   private
 
     def feedback_params
-      params.require(:feedback).permit(:content)
+      params.require(:feedback).permit(:content, :picture)
     end
     
     def correct_customer

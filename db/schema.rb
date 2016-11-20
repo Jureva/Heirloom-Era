@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120125023) do
+ActiveRecord::Schema.define(version: 20161120201721) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20161120125023) do
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture"
   end
 
   add_index "feedbacks", ["customer_id", "created_at"], name: "index_feedbacks_on_customer_id_and_created_at"

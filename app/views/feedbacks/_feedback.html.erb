@@ -1,7 +1,10 @@
 <li id="feedback-<%= feedback.id %>">
   <%= link_to gravatar_for(feedback.customer, size: 50), feedback.customer %>
   <span class="customer"><%= link_to feedback.customer.name, feedback.customer %></span>
-  <span class="content"><%= feedback.content %></span>
+  <span class="content">
+  <%= feedback.content %>
+  <%= image_tag feedback.picture.url if feedback.picture? %>
+  </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(feedback.created_at) %> ago.
     <% if current_customer?(feedback.customer) %>
