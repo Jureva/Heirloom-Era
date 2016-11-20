@@ -11,14 +11,14 @@
      </style>
       <tr>
         <th>Title</th> 
-        <th>Text</th> 
+        <th>Description</th> 
         <th colspan="3"></th> 
       </tr>
      
       <% @ideas.each do |idea| %>
         <tr>
           <td><%= idea.title %></td>
-          <td><%= idea.text %></td>
+          <td><%= idea.description %></td>
           <td><%= link_to 'Show', idea_path(idea) %></td>
           <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
           <td><%= link_to 'Delete', idea,
@@ -40,7 +40,7 @@
                     <hr>
                     <img class="img-responsive img-border img-left" src="<%= asset_path 'idea.jpg'%>" alt="">
                     <hr>
-                    <p>Sometime inspiration comes in weirdest form imaginable, you can create it, with our help, or without , materialize it. Art provides the best shape of idea.</p>
+                    <p>Sometime inspiration comes in weirdest form imaginable, you can create it, with our help, or without , materialize it. Art provides the best shape of an idea.</p>
                 </div>
             </div>
         </div>

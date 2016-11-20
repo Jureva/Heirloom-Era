@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
 # before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_customer, only: [:index,:edit, :update, :destroy]
+  #before_action :logged_in_customer, only: [:index,:edit, :update, :destroy]
   before_action :correct_customer, only: [:edit, :update]
   before_action :admin_customer,     only: :destroy
   # GET /customers
@@ -13,6 +13,7 @@ class CustomersController < ApplicationController
   # GET /customers/1.json
   def show
      @customer = Customer.find(params[:id])
+     @feedbacks = @customer.feedbacks.paginate(page: params[:page])
      redirect_to root_url and return unless true  
     #debugger
   end
@@ -79,23 +80,23 @@ class CustomersController < ApplicationController
  
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_customer
-      @customer = Customer.find(params[:id])
-    end
+    #def set_customer
+     # @customer = Customer.find(params[:id])
+   # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:name, :email, :password)
+      params.require(:customer).permit(:name, :email, :password, :password_confirmation)
     end
     
     # Confirms a logged-in customer.
-    def logged_in_customer
-      unless logged_in?
-      store_location 
-        flash[:danger] = "Please log in"
-        redirect_to login_url
-      end
-    end
+    #def logged_in_customer
+     # unless logged_in?
+      #store_location 
+        #flash[:danger] = "Please log in"
+        #redirect_to login_url
+     # end
+    #end
     
     # Confirms the correct customer.
     def correct_customer

@@ -46,7 +46,7 @@ class IdeasController < ApplicationController
        # render plain: params[:idea].inspect
   private
   def idea_params
-    params.require(:idea).permit(:title, :text)
+    params.require(:idea).permit(:title, :description)
   end
 end
 

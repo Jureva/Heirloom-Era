@@ -2,7 +2,7 @@ class CreateIdeas < ActiveRecord::Migration
   def change
     create_table :ideas do |t|
       t.string :title
-      t.text :text
+      t.text :description
 
       t.timestamps null: false
     end

@@ -19,6 +19,19 @@
 </h2>
     </section>
   </aside>
+  
+ 
+ <div class="col-md-8">
+    <% if @customer.feedbacks.any? %>
+      <h3>feedbacks (<%= @customer.feedbacks.count %>)</h3>
+      <ol class="feedbacks">
+        <%= render @feedbacks %>
+      </ol>
+      <%= will_paginate @feedbacks %>
+    <% end %>
+  </div>
+ 
+  
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
 </div>
