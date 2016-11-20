@@ -4,5 +4,9 @@
   <span class="content"><%= feedback.content %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(feedback.created_at) %> ago.
+    <% if current_customer?(feedback.customer) %>
+      <%= link_to "Delete", feedback, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
   </span>
 </li>
