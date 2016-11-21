@@ -8,7 +8,7 @@ before_action :correct_customer,   only: :destroy
       redirect_to root_url
     else
       @feed_items = []
-      render '/home'
+      render '/'
     end
   end
 
