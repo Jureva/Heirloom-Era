@@ -46,6 +46,6 @@ class OrdersController < ApplicationController
   
     private
     def order_params
-      params.require(:order).permit(:title, :text)
+      params.require(:order).permit(:title, :price)
     end
 end

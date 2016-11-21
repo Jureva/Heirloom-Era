@@ -49,3 +49,13 @@ customers = Customer.order(:created_at).take(6)
   content = Faker::Lorem.sentence(5)
   customers.each { |customer| customer.feedbacks.create!(content: content) }
 end
+
+Order.delete_all
+ 
+Order.create!([
+  {id: 1, title: "Hipster jacket", price: 200},
+  {id: 2, title: "Retro dress", price: 110},
+  {id: 3, title: "Grandma's blouse", price: 69.95},
+  {id: 4, title: "Lambada skirt", price: 49.25},
+  {id: 5, title: "Scarf from the past", price: 15.95}
+])
