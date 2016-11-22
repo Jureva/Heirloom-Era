@@ -21,10 +21,16 @@ class OrdersController < ApplicationController
     def create
       @order = Order.new(order_params) 
      
-    if @order.save
-      redirect_to @order
-    else render new
+      if @order.save
+        redirect_to @order
+      else 
+        render new
+      end
     end
+    
+    def purchase
+      @order = Order.find(params[:id])
+      redirect_to @order.paypal_url(order_path(@order))
     end
     
     def update

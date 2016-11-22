@@ -24,6 +24,7 @@
           <td><%= link_to 'Delete', order,
                   method: :delete,
                   data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Buy', order_path(order), method: :post %></td>
     </tr>
   <% end %>
 </table>
@@ -43,6 +44,7 @@
                     <img class="img-responsive img-border img-left" src="<%= asset_path 'payments.jpg'%>" alt="">
                     <hr>
                     <p>Please, click pay to proceed Your order </p>
+
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'customers/new'
-   #get 'signup' => 'customers#new'
+  #get 'signup' => 'customers#new'
   get    '/signup',  to: 'customers#new'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
@@ -17,8 +17,13 @@ Rails.application.routes.draw do
   resources :feedbacks,          only: [:create, :destroy]
   resources :ideas
   resources :orders
+  post '/orders/:id', to: 'orders#purchase'    # for return_url(show_invoice)
   
   # get 'welcome/index'
+
+  # Paypal hooks
+  #post '/registration/:id', to: 'registrations#show'  # for return_url(show_invoice)
+  post '/hook' , to: 'regstrations#hook'               # for notification_url
 
   root 'welcome#index'
 
