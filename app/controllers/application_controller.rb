@@ -14,5 +14,9 @@ class ApplicationController < ActionController::Base
         redirect_to login_url
       end
     end
+    
+    def create_order
+      flash[:danger] = "Does it run?"
+    end
   
 end

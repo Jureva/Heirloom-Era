@@ -14,13 +14,12 @@
     <th>Title</th>
     <th>Price</th>
   </tr>
- 
   <% @orders.each do |order| %>
     <tr>
       <td><%= order.title %></td>
-      <td><%= order.price %></td>
-      <td><%= link_to 'Show', order_path(order) %></td>
-      <td><%= link_to 'Edit', edit_order_path(order) %></td>
+      <td><%= number_to_currency order.price %></td>
+      <td><!--%= link_to 'Show', order_path(order) %></td>
+      <td><!--%= link_to 'Edit', edit_order_path(order) % --></td>
           <td><%= link_to 'Delete', order,
                   method: :delete,
                   data: { confirm: 'Are you sure?' } %></td>
@@ -28,7 +27,8 @@
     </tr>
   <% end %>
 </table>
-    <strong><%= link_to 'New order', new_order_path %></strong>  
+    <!--strong>%= link_to 'New order', new_order_path %></strong-->  
+   
     </div>
   </div>
 </div>

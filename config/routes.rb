@@ -18,12 +18,11 @@ Rails.application.routes.draw do
   resources :ideas
   resources :orders
   post '/orders/:id', to: 'orders#purchase'    # for return_url(show_invoice)
-  
   # get 'welcome/index'
 
   # Paypal hooks
-  #post '/registration/:id', to: 'registrations#show'  # for return_url(show_invoice)
-  post '/hook' , to: 'regstrations#hook'               # for notification_url
+  post '/order/:id', to: 'orders#show'  # for return_url(show_invoice)
+  post '/hook' , to: 'orders#hook'               # for notification_url
 
   root 'welcome#index'
 

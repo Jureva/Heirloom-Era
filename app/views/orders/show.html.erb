@@ -6,11 +6,25 @@
   <%= @order.title %>
 </p>
  
+ <p>
+  <strong>Description:</strong>
+  <%= @order.description %>
+</p>
+ 
 <p>
   <strong>Price:</strong>
   <%= @order.price %>
 </p>
-<strong><%= link_to 'Edit', edit_order_path(@order) %> |</strong>
+<div class="col-md-8">
+    <% if @order.nil? %>
+      <h3>Ideas (<%= @order.ideas.count %>)</h3>
+      <ol class="ideas">
+        <%= render @ideas %>
+      </ol>
+    <% end %>
+  </div>
+
+
 <strong><%= link_to 'Back', orders_path %></strong>
     </div>
   </div>
