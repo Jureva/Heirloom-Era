@@ -15,8 +15,6 @@ class ApplicationController < ActionController::Base
       end
     end
     
-    def create_order
-      flash[:danger] = "Does it run?"
-    end
+    
   
 end

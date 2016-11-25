@@ -1,8 +1,12 @@
 class OrdersController < ApplicationController
-#before_action :logged_in_customer, only: [:index,:edit, :update, :destroy]
-before_action :correct_customer, only: [:index, :destroy]
+before_action :logged_in_customer, only: [:index, :destroy]
+#before_action :correct_customer,   only: [:index, :destroy]
+before_action :admin_customer,     only: :destroy
+#before_action :care_customer,     only: [:show, :edit, :destroy]
+
     def index
-    @orders = Order.all
+    @orders = Order.by_id_and_customer_id(params[:id], session[:customer_id])
+    #@orders = Order.all
     end
     
     def show
@@ -42,7 +46,7 @@ before_action :correct_customer, only: [:index, :destroy]
     
     def purchase
       if params[:id] == "special"
-        my_params = { title: params[:title], description: params[:description], price: 0}
+        my_params = {customer_id: params[:customer_id], title: params[:title], description: params[:description], price: 0}
         @order = Order.new(my_params)
         @order.save
         redirect_to @order
@@ -52,6 +56,8 @@ before_action :correct_customer, only: [:index, :destroy]
       end
     end
     
+      
+        
     #def update
      # @order = Order.find(params[:id])
      
@@ -72,13 +78,17 @@ before_action :correct_customer, only: [:index, :destroy]
 
   private
     def order_params
-      #params.require(:order).permit(:title, :price)
+      params.require(:order).permit(:title, :description, :price)
     end
     
     def correct_customer
-      #@order = current_customer.orders.find_by(id: params[:id])
-      @order = params[:id]
-      #redirect_to root_url if @order.nil?
+      @order = current_customer.orders.find_by(id: params[:id])
+      redirect_to root_url if @order.nil?
     end
     
+    
+    # Confirms an admin customer.
+    def admin_customer
+      redirect_to(root_url) unless current_customer.admin?
+    end
 end

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :feedbacks,          only: [:create, :destroy]
-  resources :ideas
+  resources :ideas             
   resources :orders
   post '/orders/:id', to: 'orders#purchase'    # for return_url(show_invoice)
   # get 'welcome/index'

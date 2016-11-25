@@ -23,7 +23,11 @@
           <td><%= link_to 'Delete', order,
                   method: :delete,
                   data: { confirm: 'Are you sure?' } %></td>
+      <% if has_price(order.price) %>
       <td><%= link_to 'Buy', order_path(order), method: :post %></td>
+      <% else %>
+      <td><strong>Quoting in progress</strong></td>
+      <% end %>
     </tr>
   <% end %>
 </table>

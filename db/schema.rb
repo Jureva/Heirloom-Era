@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124220305) do
+ActiveRecord::Schema.define(version: 20161125213125) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20161124220305) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.boolean  "customer_care",     default: false
   end
 
   add_index "customers", ["email"], name: "index_customers_on_email", unique: true
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(version: 20161124220305) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "customer_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(version: 20161124220305) do
     t.string   "transaction_id"
     t.datetime "purchased_at"
     t.float    "price"
+    t.integer  "customer_id"
   end
 
 end

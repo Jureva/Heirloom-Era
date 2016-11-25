@@ -21,15 +21,36 @@ Customer.create!(name:  "Customer",
              activated: true,
              activated_at: Time.zone.now)
              
-Idea.create!(title: "Grandma's blouse",
+Idea.create!(customer_id: 13,
+    title: "Grandma's blouse",
     description: "It's retro style shirt with vintage soul, a blast from the past, I wanna wear now.",
     created_at: Time.zone.now,
     updated_at: Time.zone.now)
     
-Idea.create!(title: "Hipster jacket",
+Idea.create!(customer_id: 2,
+    title: "Hipster jacket",
     description: "I just wanna new retro style jacket for Xmas, so got one from my grandpa's young days.",
     created_at: Time.zone.now,
     updated_at: Time.zone.now)
+    
+    Idea.create!(customer_id: 13,
+    title:"Lambada skirt",
+    description: "Most valuable memories from the dance floor with that skirt, I want my child to wear (after adjustment)..	",
+    created_at: Time.zone.now,
+    updated_at: Time.zone.now)
+    
+     Idea.create!(customer_id: 69,
+    title:"Scarf from the past",
+    description: "Don't even remember now if my or mom's granny owned it..With HE help will have it as a best part of my dress.",
+    created_at: Time.zone.now,
+    updated_at: Time.zone.now)
+    
+    Idea.create!(customer_id: 9,
+    title:"Pinapple bag",
+    description: "Always wanted to own something animal and nature friendly, ecologic, have material, now need to shape it up.",
+    created_at: Time.zone.now,
+    updated_at: Time.zone.now)
+    
              
 99.times do |n|
   name  = Faker::Name.name
@@ -53,9 +74,9 @@ end
 Order.delete_all
  
 Order.create!([
-  {id: 1, title: "Hipster jacket", price: 200},
-  {id: 2, title: "Retro dress", price: 110},
-  {id: 3, title: "Grandma's blouse", price: 69.95},
-  {id: 4, title: "Lambada skirt", price: 49.25},
-  {id: 5, title: "Scarf from the past", price: 15.95}
+  {customer_id: 2, title: "Hipster jacket", price: 200},
+  {customer_id: 9, title: "Pinapple bag", price: 110},
+  {customer_id: 13, title: "Grandma's blouse", price: 69.95},
+  {customer_id: 13, title: "Lambada skirt", price: 49.25},
+  {customer_id: 69, title: "Scarf from the past", price: 15.95}
 ])

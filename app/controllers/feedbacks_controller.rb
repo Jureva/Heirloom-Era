@@ -1,6 +1,7 @@
 class FeedbacksController < ApplicationController
 before_action :logged_in_customer, only: [:create, :destroy]
 before_action :correct_customer,   only: :destroy
+
   def create
     @feedback = current_customer.feedbacks.build(feedback_params)
     if @feedback.save
