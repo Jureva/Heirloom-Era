@@ -1,12 +1,12 @@
 class IdeasController < ApplicationController
-before_action :logged_in_customer, only: [:index,:show]  
+#before_action :logged_in_customer, only: [:index,:show]  
 #before_action :correct_customer, only: [:create, :show, :edit, :update, :destroy]
-before_action :admin_customer,    only: :destroy
-before_action :care_customer,     only: [:show, :edit, :destroy]  
+#before_action :admin_customer,    only: :destroy
+ 
   def index
     #@ideas = Idea.all
     @customer = Customer.find(session[:customer_id])
-    if @customer.adminor @customer.customer_care 
+    if @customer.admin or @customer.customer_care 
       @ideas = Idea.all
     else
       @ideas = Idea.by_id_and_customer_id(params[:id], session[:customer_id])
@@ -27,7 +27,8 @@ before_action :care_customer,     only: [:show, :edit, :destroy]
 
   def create
     @idea = Idea.new(idea_params)
-      
+    @idea.customer_id = session[:customer_id]
+    
     if @idea.save
       redirect_to @idea
     else
@@ -66,8 +67,8 @@ before_action :care_customer,     only: [:show, :edit, :destroy]
     
     
     # Confirms an admin customer.
-    def admin_customer
-      redirect_to(root_url) unless current_customer.admin?
-    end
+    #def admin_customer
+      #redirect_to(root_url) unless current_customer.admin?
+    #end
 end
 

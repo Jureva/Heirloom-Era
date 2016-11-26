@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
 before_action :logged_in_customer, only: [:index, :destroy]
 #before_action :correct_customer,   only: [:index, :destroy]
-before_action :admin_customer,     only: :destroy
-before_action :care_customer,     only: [:show, :edit, :destroy]
+#before_action :admin_customer,     only: :destroy
+#before_action :care_customer,     only: [:show, :edit, :destroy]
 
   def index
       @customer = Customer.find(session[:customer_id])
@@ -93,7 +93,7 @@ before_action :care_customer,     only: [:show, :edit, :destroy]
     
     
     # Confirms an admin customer.
-    d#ef admin_customer
+    #def admin_customer
       #redirect_to(root_url) unless current_customer.admin?
-    e#nd
+    #end
 end

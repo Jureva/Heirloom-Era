@@ -13,6 +13,14 @@ Customer.create!(name:  "Administrator",
              activated: true,
              activated_at: Time.zone.now)
              
+             Customer.create!(name:  "Customer Care",
+             email: "customercare@fake.com",
+             password:              "passwordcare",
+             password_confirmation: "passwordcare",
+             customer_care: true,
+             activated: true,
+             activated_at: Time.zone.now)
+             
 Customer.create!(name:  "Customer",
              email: "customerone@fake.com",
              password:              "passwordone",
