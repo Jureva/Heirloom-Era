@@ -1,11 +1,16 @@
 class IdeasController < ApplicationController
 before_action :logged_in_customer, only: [:index,:show]  
 #before_action :correct_customer, only: [:create, :show, :edit, :update, :destroy]
-before_action :admin_customer, only: :destroy
-  
+before_action :admin_customer,    only: :destroy
+before_action :care_customer,     only: [:show, :edit, :destroy]  
   def index
     #@ideas = Idea.all
-    @ideas = Idea.by_id_and_customer_id(params[:id], session[:customer_id])
+    @customer = Customer.find(session[:customer_id])
+    if @customer.adminor @customer.customer_care 
+      @ideas = Idea.all
+    else
+      @ideas = Idea.by_id_and_customer_id(params[:id], session[:customer_id])
+    end
   end
  
   def show
