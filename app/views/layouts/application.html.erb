@@ -50,6 +50,10 @@
                         <a href="/customers">Customer Profile</a>
                     </li>
                     
+                    <% if c_care? %>  
+                    <li><a href="/customer_care"> Customer Care</a></li>
+                    <% end%>
+                    
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <% if logged_in? %>

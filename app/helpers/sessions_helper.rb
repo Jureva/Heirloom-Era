@@ -42,6 +42,14 @@ module SessionsHelper
     !current_customer.nil?
   end
   
+  def c_care?
+    if logged_in?
+        current_customer.customer_care
+    else
+        false
+    end
+  end
+  
   # Forgets a persistent session.
   def forget(customer)
     customer.forget

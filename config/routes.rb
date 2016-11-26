@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :feedbacks,          only: [:create, :destroy]
   resources :ideas             
   resources :orders
+  resources :customer_care
   post '/orders/:id', to: 'orders#purchase'    # for return_url(show_invoice)
   # get 'welcome/index'
 
