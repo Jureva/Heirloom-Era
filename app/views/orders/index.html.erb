@@ -12,17 +12,22 @@
      </style>
   <tr>
     <th>Title</th>
+    <th>Description</th>
     <th>Price</th>
+    <th colspan="3"></th>
   </tr>
   <% @orders.each do |order| %>
     <tr>
       <td><%= order.title %></td>
+      <td><%= order.description %></td>
       <td><%= number_to_currency order.price %></td>
-      <td><!--%= link_to 'Show', order_path(order) %></td>
-      <td><!--%= link_to 'Edit', edit_order_path(order) % --></td>
-          <td><%= link_to 'Delete', order,
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %></td>
+      <!--%= link_to 'Show', order_path(order) %-->
+      <% if c_care? %> 
+      <td><%= link_to 'Edit', edit_order_path(order) %></td>
+      <% end %>
+      <td><%= link_to 'Delete', order,
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
       <% if has_price(order.price) %>
       <td><%= link_to 'Buy', order_path(order), method: :post %></td>
       <% else %>

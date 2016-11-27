@@ -22,9 +22,9 @@ before_action :logged_in_customer, only: [:index, :destroy]
       @order = Order.new    
     end
 
-    #def edit
-     # @order = Order.find(params[:id])
-    #end
+    def edit
+      @order = Order.find(params[:id])
+    end
   
   protect_from_forgery except: [:hook]
   
@@ -63,15 +63,15 @@ before_action :logged_in_customer, only: [:index, :destroy]
     
       
         
-    #def update
-     # @order = Order.find(params[:id])
+    def update
+      @order = Order.find(params[:id])
      
-    #if @order.update(order_params)
-      #redirect_to @order
-   # else
-    #  render 'edit'
-    #end
-    #end
+    if @order.update(order_params)
+      redirect_to @order
+    else
+      render 'edit'
+    end
+    end
     
     def destroy
     @order = Order.find(params[:id])

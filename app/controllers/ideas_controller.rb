@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-#before_action :logged_in_customer, only: [:index,:show]  
+before_action :logged_in_customer, only: [:index,:show]  
 #before_action :correct_customer, only: [:create, :show, :edit, :update, :destroy]
 #before_action :admin_customer,    only: :destroy
  
