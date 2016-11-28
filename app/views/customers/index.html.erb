@@ -4,7 +4,7 @@
 <p id="notice"><%= notice %></p>
 
 <h2 class="intro-text text-center">All Customers</h2>
-
+<%= will_paginate %>
 <table>
   <style>
   th, td {
@@ -36,7 +36,7 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate %>
+
 <br>
 
 <%= link_to 'New Customer', new_customer_path %>

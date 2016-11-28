@@ -82,9 +82,18 @@ end
 Order.delete_all
  
 Order.create!([
-  {customer_id: 2, title: "Hipster jacket", price: 200},
-  {customer_id: 9, title: "Pinapple bag", price: 110},
-  {customer_id: 13, title: "Grandma's blouse", price: 69.95},
-  {customer_id: 13, title: "Lambada skirt", price: 49.25},
-  {customer_id: 69, title: "Scarf from the past", price: 15.95}
+  {customer_id: 2, title: "Hipster jacket", description: "I just wanna new retro style jacket for Xmas, so got one from my grandpa's young days.", price: 0},
+  {customer_id: 9, title: "Pinapple bag", description: "Always wanted to own something animal and nature friendly, ecologic, have material, now need to shape it up.", price: 110},
+  {customer_id: 13, title: "Grandma's blouse", description: "It's retro style shirt with vintage soul, a blast from the past, I wanna wear now.", price: 69.95},
+  {customer_id: 13, title: "Lambada skirt", description: "Most valuable memories from the dance floor with that skirt, I want my child to wear (after adjustment)..	", price: 49.25},
+  {customer_id: 69, title: "Scarf from the past", description: "Don't even remember now if my or mom's granny owned it..With HE help will have it as a best part of my dress.", price: 15.95}
 ])
+
+CustomerCare.create!([
+    {name: "Hazel", mail: "hazel@nuts.com", subject: "New in Here", message: "I just want to know more about it before creating an account. Thanks"},
+    {name:"Jane", mail:"jane@eire.com", subject: "confused ", message: "Is it possible to delete my orders even I requested a price?"},
+    {name: "Alan", mail:"alan@co.com", subject: "Time", message: "Just want to know if I can receive my garment faster, I'm willing to pay extra if needed, express quriers etc."}
+])
+
+
+

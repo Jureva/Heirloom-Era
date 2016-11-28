@@ -2,7 +2,7 @@
 <div class="row">
   <div class="box">
    <div class="col-lg-12">  
-    <h2 class="intro-text text-center">Your Orders</h2>
+    <h2 class="intro-text text-center">Customer Orders</h2>
  
 <table>
      <style>
@@ -25,32 +25,36 @@
       <% if c_care? %> 
       <td><%= link_to 'Edit', edit_order_path(order) %></td>
       <% end %>
-      <td><%= link_to 'Delete', order,
-                      method: :delete,
-                      data: { confirm: 'Are you sure?' } %></td>
       <% if has_price(order.price) %>
-      <td><%= link_to 'Buy', order_path(order), method: :post %></td>
+      <td><%= link_to 'Make a payment', order_path(order), method: :post %></td>
       <% else %>
       <td><strong>Quoting in progress</strong></td>
       <% end %>
+      <td><%= link_to 'Delete', order,
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
-    <!--strong>%= link_to 'New order', new_order_path %></strong-->  
-   
+    <h2 class="intro-text text-center"> Pay with PayPal </h2>
+    <img class="img-responsive img-border img-right" src="<%= asset_path 'payments.jpg'%>" alt="">  <!--strong>%= link_to 'New order', new_order_path %></strong-->  
     </div>
   </div>
 </div>
 
-
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center"> Pay with PayPal </h2>
-                    <hr>
-                    <img class="img-responsive img-border img-right" src="<%= asset_path 'payments.jpg'%>" alt="">
-                    <hr>
+                    <h2 class="intro-text text-center"> simple guide of order process </h2>
+                    <td> Payment invoice </td>
+                    <p>Pay online and print your payment confirmation form, then post the form to us with your garments.</p>
+                    <td>Post heirloom</td>
+                    <p>We will complete your order creation, required alteration and return your garments to you</p>
+                    <td>Track order</td>
+                    <p> You can track order during shipment process <a href="https://track.anpost.ie">Track Your Order</a></p>
+                    
+                    <td>Your heirloom on the way</td>
+                    <p>Within five to ten working days you will receive your garments on behalf of our top quality alteration artist team.</p>
                 </div>
             </div>
         </div>
@@ -61,10 +65,11 @@
                     <hr>
                     <h2 class="intro-text text-center"> Do you have any questions regarding this order?
                     </h2>
-                    <hr>
-                    <img class="img-responsive img-border img-left" src="<%= asset_path 'order.jpg'%>" alt="">
-                    <hr>
-                    <p>We are here for you, ask about anything, heirloom world is in front of you..</p>
+                    <br>
+                    <p>We are here for you, ask anything, heirloom world doesn't have end.</p>
+                    <p>You can always contact Customer Care through the Home page <a href="/">Home</a></p>
+                    <img class="img-responsive img-border img-right" src="<%= asset_path 'order.jpg'%>" alt="">
+                    
                 </div>
             </div>
         </div>
