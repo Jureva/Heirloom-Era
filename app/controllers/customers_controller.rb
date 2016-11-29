@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
 # before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_customer, only:  [:index,:show] #:edit, :update, :destroy]
-  #before_action :correct_customer, only: [:edit, :update]
+  #before_action :logged_in_customer, only: :index#[:,] show :edit, :update, :destroy]
+  before_action :correct_customer, only: [:edit, :update]
   #before_action :admin_customer,     only: :destroy
   # GET /customers
   # GET /customers.json

@@ -28,10 +28,12 @@
         </td>
         <td><%= customer.email %></td>
         <td><%= link_to 'Show', customer %></td>
+        <% if current_customer.admin? %> 
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
               <td><%= link_to 'Delete', customer,
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
