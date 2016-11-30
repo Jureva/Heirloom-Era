@@ -2,7 +2,8 @@ class CustomersController < ApplicationController
 # before_action :set_customer, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_customer, only: [:index, :show]  #:edit, :update, :destroy]
   before_action :correct_customer, only: [:edit, :update]
-  before_action :admin_customer,     only: :destroy
+# before_action :admin_customer,     only: :destroy
+  before_action :admin,     only: :destroy
   # GET /customers
   # GET /customers.json
   def index
@@ -105,7 +106,7 @@ class CustomersController < ApplicationController
     end
     
     # Confirms an admin customer.
-    def admin_customer
+    def admin
       redirect_to(root_url) unless current_customer.admin?
     end
 end
