@@ -3,7 +3,7 @@ class Feedback < ActiveRecord::Base
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :customer_id, presence: true
-  validates :content, presence: true, length: { maximum: 140 }
+  validates :content, presence: true, length: { maximum: 650 }
   validate  :picture_size
   
   private
