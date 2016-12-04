@@ -1,3 +1,4 @@
+#code in this file follows the example in the book https://www.railstutorial.org/book/advanced_login
 class SessionsController < ApplicationController
   def new
   end

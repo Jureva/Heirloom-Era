@@ -1,3 +1,4 @@
+#code in this file follows the example in the book https://www.railstutorial.org/book/basic_login
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

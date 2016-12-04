@@ -1,3 +1,4 @@
+#code in this file follows the example in the book https://www.railstutorial.org/book/sign_up
 class CustomerCareController < ApplicationController
     def index
         @customer_cares = CustomerCare.all

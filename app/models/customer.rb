@@ -1,7 +1,7 @@
 class Customer < ActiveRecord::Base
     has_many :feedbacks, dependent: :destroy
     attr_accessor :remember_token, :activation_token, :reset_token
-    before_save :downcase_email #{self.email = email.downcase}
+    before_save :downcase_email 
     before_create :create_activation_digest
     validates :name, presence: true, length: {maximum:50}
     
@@ -13,7 +13,7 @@ class Customer < ActiveRecord::Base
         validates :password, presence: true, length: {minimum:6}, allow_nil: true
     
     # Returns the hash digest of the given string.0
-    #def self.digest(string)
+    
     def Customer.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
@@ -21,7 +21,7 @@ class Customer < ActiveRecord::Base
     end
     
     # Returns a random token.
-    #def self.new_token
+   
     def Customer.new_token
         SecureRandom.urlsafe_base64
     end
@@ -47,8 +47,7 @@ class Customer < ActiveRecord::Base
     # Activates an account.
   def activate
     update_columns(activated: true, activated_at: Time.zone.now)
-    #update_attribute(:activated,    true)
-    #update_attribute(:activated_at, Time.zone.now)
+
   end
 
   # Sends activation email.
@@ -60,8 +59,7 @@ class Customer < ActiveRecord::Base
   def create_reset_digest
     self.reset_token = Customer.new_token
     update_columns(reset_digest: Customer.digest(reset_token), reset_sent_at: Time.zone.now)
-    #update_attribute(:reset_digest,  Customer.digest(reset_token))
-    #update_attribute(:reset_sent_at, Time.zone.now)
+    
   end
 
   # Sends password reset email.

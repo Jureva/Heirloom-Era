@@ -1,3 +1,4 @@
+#code in this file follows the example in the book https://www.railstutorial.org/book/sign_up
 module CustomersHelper
    # Returns the Gravatar for the given customer.
   def gravatar_for(customer, options = { size: 80 })

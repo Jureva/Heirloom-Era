@@ -2,7 +2,7 @@
   <tr>
     <td><%= idea.title %></td>
     <td><%= number_to_currency order.price %></td>
-    <td><!--%= link_to "Edit", edit_order_path(order), remote: true, class: "actions" %--></td>
+    
     <td><%= link_to "Delete", order_delete_path(order), remote: true, class: "actions" %></td>
   </tr>
 <% end %>

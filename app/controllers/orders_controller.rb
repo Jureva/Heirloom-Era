@@ -1,8 +1,6 @@
 class OrdersController < ApplicationController
 before_action :logged_in_customer, only: [:index, :destroy]
-#before_action :correct_customer,   only: [:index, :destroy]
-#before_action :admin_customer,     only: :destroy
-#before_action :care_customer,     only: [:show, :edit, :destroy]
+
 
   def index
       @customer = Customer.find(session[:customer_id])
@@ -10,7 +8,7 @@ before_action :logged_in_customer, only: [:index, :destroy]
       @orders = Order.all
     else
     @orders = Order.by_id_and_customer_id(params[:id], session[:customer_id])
-    #@orders = Order.all
+ 
     end
   end
   
@@ -86,14 +84,4 @@ before_action :logged_in_customer, only: [:index, :destroy]
       params.require(:order).permit(:title, :description, :price)
     end
     
-    #def correct_customer
-      #@order = current_customer.orders.find_by(id: params[:id])
-      #redirect_to root_url if @order.nil?
-    #end
-    
-    
-    # Confirms an admin customer.
-    #def admin_customer
-      #redirect_to(root_url) unless current_customer.admin?
-    #end
 end

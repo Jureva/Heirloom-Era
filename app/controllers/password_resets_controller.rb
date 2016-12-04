@@ -1,3 +1,4 @@
+#code in this file follows the example in the book https://www.railstutorial.org/book/password_reset
 class PasswordResetsController < ApplicationController
 before_action :get_customer,   only: [:edit, :update]
 before_action :valid_customer, only: [:edit, :update]
@@ -48,7 +49,7 @@ end
 
     # Confirms a valid customer.
     def valid_customer
-      unless (@customer && #@customer.activated? &&
+      unless (@customer && 
               @customer.authenticated?(:reset, params[:id]))
         redirect_to root_url
       end

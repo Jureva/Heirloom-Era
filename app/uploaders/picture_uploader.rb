@@ -1,4 +1,4 @@
-# encoding: utf-8
+#code in this file follows the example in the book https://www.railstutorial.org/book/ user_microposts
 
 class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick

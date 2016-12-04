@@ -21,7 +21,7 @@
       <td><%= order.title %></td>
       <td><%= order.description %></td>
       <td><%= number_to_currency order.price %></td>
-      <!--%= link_to 'Show', order_path(order) %-->
+    
       <% if c_care? %> 
       <td><%= link_to 'Edit', edit_order_path(order) %></td>
       <% end %>

@@ -1,6 +1,5 @@
 class Order < ActiveRecord::Base
     belongs_to :idea
-    #validates :idea_id, presence: true
     validates :title, presence: true,
                     length: { minimum: 5 }
                     
@@ -28,8 +27,7 @@ class Order < ActiveRecord::Base
             notify_url: "#{Rails.application.secrets.app_host}/hook"
         }
         "#{Rails.application.secrets.paypal_host}" + "/cgi-bin/webscr?" + values.to_query
-        #'https://' + "www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
-        #"#{Rails.application.secrets.paypal_host}" + "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+        
     end
 
 end

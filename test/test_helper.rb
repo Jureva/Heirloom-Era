@@ -15,6 +15,10 @@ class ActiveSupport::TestCase
   def log_in_as(customer)
     session[:customer_id] = customer.id
   end
+  
+  def admin
+    customer.admin
+  end
 end
 
 class ActionDispatch::IntegrationTest

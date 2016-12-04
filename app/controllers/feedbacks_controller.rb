@@ -1,3 +1,4 @@
+#code in this file follows the example in the book https://www.railstutorial.org/book/user_microposts
 class FeedbacksController < ApplicationController
 before_action :logged_in_customer, only: [:create, :destroy]
 before_action :correct_customer,   only: :destroy

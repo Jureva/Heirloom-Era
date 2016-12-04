@@ -1,5 +1,5 @@
+#code in this file follows the example in the book https://www.railstutorial.org/book/advanced_login
 module SessionsHelper
-
   # Logs in the given customer.
   def log_in(customer)
     session[:customer_id] = customer.id
@@ -33,9 +33,7 @@ module SessionsHelper
   end
   
   # Returns the current logged-in customer (if any).
-  #def current_customer
-    #customer = Customer.find_by(id: customer_id)
-  #end
+  
   
   # Returns true if the customer is logged in, false otherwise.
   def logged_in?

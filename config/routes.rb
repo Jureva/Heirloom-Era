@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get 'customers/new'
-  #get 'signup' => 'customers#new'
+  
   get    '/signup',  to: 'customers#new'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :customer_care
   post '/orders/:id', to: 'orders#purchase'    # for return_url(show_invoice)
-  # get 'welcome/index'
+  
 
   # Paypal hooks
   post '/order/:id', to: 'orders#show'  # for return_url(show_invoice)

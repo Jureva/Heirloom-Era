@@ -1,9 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  text: MyText
-
-two:
-  title: MyString
-  text: MyText
+scarf:
+    title: Blue Scarf
+    description: Chelsea style from 90s
+    created_at:  <%= Time.zone.now %>
+    updated_at: <%= Time.zone.now %>
+    customer_id: 3
