@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -36,9 +35,8 @@ ActiveRecord::Schema.define(version: 20161126175317) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.boolean  "customer_care",     default: false
+    t.index ["email"], name: "index_customers_on_email", unique: true
   end
-
-  add_index "customers", ["email"], name: "index_customers_on_email", unique: true
 
   create_table "feedbacks", force: :cascade do |t|
     t.text     "content"
@@ -46,9 +44,8 @@ ActiveRecord::Schema.define(version: 20161126175317) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture"
+    t.index ["customer_id", "created_at"], name: "index_feedbacks_on_customer_id_and_created_at"
   end
-
-  add_index "feedbacks", ["customer_id", "created_at"], name: "index_feedbacks_on_customer_id_and_created_at"
 
   create_table "ideas", force: :cascade do |t|
     t.string   "title"
