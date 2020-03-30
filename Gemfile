@@ -32,8 +32,7 @@ gem 'mini_magick',             '4.9.4'
 gem 'fog',                     '1.38.0'
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
-# Use Unicorn as the app server
-# gem 'unicorn'
+gem 'therubyracer'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
