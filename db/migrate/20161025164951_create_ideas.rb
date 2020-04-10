@@ -1,4 +1,4 @@
-class CreateIdeas < ActiveRecord::Migration
+class CreateIdeas < ActiveRecord::Migration[4.2]
   def change
     create_table :ideas do |t|
       t.string :title
