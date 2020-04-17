@@ -30,7 +30,7 @@ gem 'faker',          '1.6.6'
 gem 'carrierwave'
 gem 'mini_magick',             '4.9.4'
 gem 'fog',                     '1.38.0'
-gem 'will_paginate',           '3.1.0'
+gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'therubyracer'
 

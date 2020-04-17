@@ -13,7 +13,7 @@ Customer.create!(name:  "Administrator",
              activated: true,
              activated_at: Time.zone.now)
              
-             Customer.create!(name:  "Customer Care",
+Customer.create!(name:  "Customer Care",
              email: "customercare@fake.com",
              password:              "passwordcare",
              password_confirmation: "passwordcare",
@@ -41,19 +41,19 @@ Idea.create!(customer_id: 3,
     created_at: Time.zone.now,
     updated_at: Time.zone.now)
     
-    Idea.create!(customer_id: 9,
+Idea.create!(customer_id: 9,
     title:"Lambada skirt",
     description: "Most valuable memories from the dance floor with that skirt, I want my child to wear (after adjustment)..	",
     created_at: Time.zone.now,
     updated_at: Time.zone.now)
     
-     Idea.create!(customer_id: 69,
+Idea.create!(customer_id: 69,
     title:"Scarf from the past",
     description: "Don't even remember now if my or mom's granny owned it..With HE help will have it as a best part of my dress.",
     created_at: Time.zone.now,
     updated_at: Time.zone.now)
     
-    Idea.create!(customer_id: 3,
+Idea.create!(customer_id: 3,
     title:"Pinapple bag",
     description: "Always wanted to own something animal and nature friendly, ecologic, have material, now need to shape it up.",
     created_at: Time.zone.now,
