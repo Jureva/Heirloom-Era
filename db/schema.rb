@@ -10,62 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126175317) do
+ActiveRecord::Schema.define(version: 2016_11_26_175317) do
 
   create_table "customer_cares", force: :cascade do |t|
-    t.string   "name"
-    t.string   "mail"
-    t.string   "subject"
-    t.string   "message"
+    t.string "name"
+    t.string "mail"
+    t.string "subject"
+    t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.string   "password_digest"
-    t.string   "remember_digest"
-    t.boolean  "admin",             default: false
-    t.string   "activation_digest"
-    t.boolean  "activated",         default: false
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.string "remember_digest"
+    t.boolean "admin", default: false
+    t.string "activation_digest"
+    t.boolean "activated", default: false
     t.datetime "activated_at"
-    t.string   "reset_digest"
+    t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.boolean  "customer_care",     default: false
+    t.boolean "customer_care", default: false
     t.index ["email"], name: "index_customers_on_email", unique: true
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "customer_id"
+    t.text "content"
+    t.integer "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "picture"
+    t.string "picture"
     t.index ["customer_id", "created_at"], name: "index_feedbacks_on_customer_id_and_created_at"
   end
 
   create_table "ideas", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "customer_id"
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "customer_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.text     "notification_params"
-    t.string   "status"
-    t.string   "transaction_id"
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "notification_params"
+    t.string "status"
+    t.string "transaction_id"
     t.datetime "purchased_at"
-    t.float    "price"
-    t.integer  "customer_id"
+    t.float "price"
+    t.integer "customer_id"
   end
 
 end
