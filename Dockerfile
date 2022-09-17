@@ -5,10 +5,10 @@ FROM ruby:2.6.5
 
 WORKDIR /usr/src/app
 COPY Gemfile ./
-RUN bundle install
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN bundle config set --local path 'vendor/cache'
+RUN bundle
 COPY . .
-RUN bin/rails db:migrate
-RUN bin/rake db:seed
+RUN rails db:migrate RAILS_ENV=development
 EXPOSE 3000
-
-CMD bin/rails server -b 0.0.0.0 -p 3000
+CMD ["bin/rails", "server", "-b", "0.0.0.0", "-p", "3000"]
